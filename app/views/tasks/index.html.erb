@@ -1,0 +1,15 @@
+<div>
+  <% @tasks.each do |task| %>
+    <p><%= task.title %></p> <!-- task[:title] ? -->
+    <div>
+      <%= link_to " show", task_path(task) %>  <!-- = task_path(task.id) car Rails permet ce type de raccourci et task est un alias dans ROUTES-->
+      <%= link_to " edit", edit_task_path(task) %>  <!-- = edit_task_path(task.id) car Rails permet ce type de raccourci  et edit_task est un alias dans ROUTES -->
+      <%= link_to " delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure ?" } %> <!-- et NON PAS tasks_path(task) au pluriel car on ne veut accéder qu'à un seul élément et Rails demande alors le nom de la table au singulier,i.e. task. De plus ici aussi on aurait pu utiliser task_path(task.id) mais comme rails permet ce type de raccourci on utilise task_path(task). Enfin le method: :delete est le DELETE de la colonne VERB dans ROUTES -->
+      </div>
+  <% end %>
+</div>
+<div>
+  <%= link_to "create", tasks_new_path %>
+</div>

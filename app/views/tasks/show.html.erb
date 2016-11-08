@@ -1,0 +1,7 @@
+<p><strong>Title: </strong><%= @task.title %></p>
+<ul>
+  <li><strong>Description: </strong><%= @task.description %></li>
+  <li><strong>Days left: </strong><%= @task.days_left %></li>
+  <li><strong>Creation date: </strong><%= @task.created_at %></li>
+</ul>
+<%= link_to "Index", tasks_path %>
